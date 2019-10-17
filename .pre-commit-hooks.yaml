@@ -3,4 +3,4 @@
     description: PHP files lint and fix with PHP-CS-Fixer
     entry: linter.sh
     language: script
-    files: (.*(?!\.php)....$)
+    files: .*\.php$
