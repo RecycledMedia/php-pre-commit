@@ -1,6 +1,13 @@
+-   id: dockerlint
+    name: Dockerfile lint with hadolint
+    description: Dockerfile lint with hadolint
+    entry: pre_commit_hooks/docker_lint.sh
+    language: script
+    files: Dockerfile
 -   id: phplint
-    name: PHP files lint
-    description: PHP files lint and fix with PHP-CS-Fixer
-    entry: linter.sh
+    name: PHP lint with php-cs-fixer
+    description: PHP lint with php-cs-fixer
+    entry: pre_commit_hooks/php_lint.sh
     language: script
     files: \.(php)$
+

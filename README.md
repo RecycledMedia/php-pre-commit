@@ -1,2 +1,3 @@
-# php-pre-commit
-Pre-commit hooks for PHP files, uses PHP CS Fixer (linter)
+# Pre commit
+
+Contains custom pre-commit hooks for linting of Docker and PHP files.
