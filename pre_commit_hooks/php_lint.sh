@@ -2,5 +2,5 @@
 
 for line in "$@"
 do
-    docker run -i --rm -v `pwd`:/opt/project php-linter fix "$line" --rules=@PSR2
+    docker run -i --rm -v `pwd`:/opt/project gcr.io/tradesy-playground/php-linter:latest fix "$line" --rules=@PSR2 --allow-risky=no
 done

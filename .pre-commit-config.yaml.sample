@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/RecycledMedia/pre-commit
-    rev: 'v1.02'
+    rev: 'v1.03'
     hooks:
       - id: phplint
         entry: pre_commit_hooks/php_lint.sh
