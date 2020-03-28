@@ -15,13 +15,12 @@ if [ `uname` = "Darwin" ]; then
     elif [ -z "$(command -v php-cs-fixer)" ]; then
             brew install php-cs-fixer
     fi
-#elif [ `uname` = "Linux" ]; then
-#    if [ -z "$(command -v hadolint)" ]; then
-#        sudo curl -fsSL https://github.com/hadolint/hadolint/releases/download/v1.17.1/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint
-#        sudo chmod 0755 /usr/local/bin/hadolint
-#    fi
+elif [ `uname` = "Linux" ]; then
+    if [ -z "$(command -v php-cs-fixer)" ]; then
+        sudo curl -fsSL https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.16.1/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
+        sudo chmod 0755 /usr/local/bin/php-cs-fixer
+    fi
 fi
-
 
 for line in "$@"
 do
