@@ -15,14 +15,14 @@ if [ `uname` = "Darwin" ]; then
     elif [ -z "$(command -v php-cs-fixer)" ]; then
             brew install php-cs-fixer
     fi
-elif [ `uname` = "Linux" ]; then
-    if [ -z "$(command -v php-cs-fixer)" ]; then
-        sudo curl -fsSL https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.16.1/php-cs-fixer.phar -o /usr/local/bin/php-cs-fixer
-        sudo chmod 0755 /usr/local/bin/php-cs-fixer
-    fi
-fi
 
-for line in "$@"
-do
-    php-cs-fixer fix "$line" --rules=@PSR2 --allow-risky=no
-done
+    for line in "$@"
+    do
+        php-cs-fixer fix "$line" --rules=@PSR2 --allow-risky=no
+    done
+elif [ `uname` = "Linux" ]; then
+    for line in "$@"
+    do
+        docker run -i --rm -v `pwd`:/opt/project gcr.io/tradesy-playground/php-linter:latest fix "$line" --rules=@PSR2 --allow-risky=no
+    done
+fi
