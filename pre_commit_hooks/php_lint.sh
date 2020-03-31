@@ -23,5 +23,5 @@ fi
 
 for line in "$@"
 do
-    eval "${exec} fix \"$line\" ${rules}"
+    eval "${exec} fix \"${line}\" ${rules}"
 done
