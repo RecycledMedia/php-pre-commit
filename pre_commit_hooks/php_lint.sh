@@ -5,6 +5,7 @@ set -o pipefail
 set -o nounset
 
 export PATH=$PATH:/usr/local/bin
+rules="--rules=@PSR2 --allow-risky=no"
 
 if ! which php-cs-fixer &>/dev/null; then
     >&2 echo 'php-cs-fixer command not found'
@@ -15,14 +16,12 @@ if [ `uname` = "Darwin" ]; then
     elif [ -z "$(command -v php-cs-fixer)" ]; then
             brew install php-cs-fixer
     fi
-
-    for line in "$@"
-    do
-        php-cs-fixer fix "$line" --rules=@PSR2 --allow-risky=no
-    done
+    exec="php-cs-fixer"
 elif [ `uname` = "Linux" ]; then
-    for line in "$@"
-    do
-        docker run -i --rm -v `pwd`:/opt/project gcr.io/tradesy-playground/php-linter:latest fix "$line" --rules=@PSR2 --allow-risky=no
-    done
+    exec="docker run -i --rm -v `pwd`:/opt/project gcr.io/tradesy-playground/php-linter:latest"
 fi
+
+for line in "$@"
+do
+    eval "${exec} fix \"$line\" ${rules}"
+done
