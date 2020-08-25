@@ -18,5 +18,6 @@ fi
 
 for line in "$@"
 do
+    printf "Linting and fixing $line ...\n"
     eval "eslint --fix \"${line}\""
 done
