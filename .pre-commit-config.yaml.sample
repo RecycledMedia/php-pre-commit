@@ -12,3 +12,9 @@ repos:
       - id: dockerlint
         entry: pre_commit_hooks/docker_lint.sh
         files: (Dockerfile\.*|Dockerfile$)
+  - repo: https://github.com/RecycledMedia/pre-commit
+    rev: 'v1.02'
+    hooks:
+      - id: eslint
+        entry: pre_commit_hooks/eslint.sh
+        files: protected/tests/cypress/.*\.js$

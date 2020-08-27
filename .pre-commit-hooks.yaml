@@ -10,4 +10,9 @@
     entry: pre_commit_hooks/php_lint.sh
     language: script
     files: \.(php)$
-
+-   id: eslint
+    name: eslint
+    description: JS linter with eslint (Cypress files only)
+    entry: pre_commit_hooks/eslint.sh
+    language: script
+    files: protected/tests/cypress/.*\.js$
