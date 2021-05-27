@@ -17,7 +17,7 @@ if [ `uname` = "Darwin" ]; then
     fi
 elif [ `uname` = "Linux" ]; then
     if [ -z "$(command -v hadolint)" ]; then
-        sudo curl -fsSL https://github.com/hadolint/hadolint/releases/download/v1.17.1/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint
+        sudo curl -fsSL https://github.com/hadolint/hadolint/releases/download/v2.4.1/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint
         sudo chmod 0755 /usr/local/bin/hadolint
     fi
 fi
